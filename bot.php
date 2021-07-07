@@ -39,28 +39,28 @@ $discord->on('ready', function ($discord) {
             if (preg_match('/!help/', $first) or preg_match('/!Help/', $first)) {
                 if (isset($command[1])) {
                     $second = $command[1];
-                    if (preg_match('/!add/', $second)) {
+                    if (preg_match('/!add/', $second) or preg_match('/add/', $second)) {
                         $content3 = "\nCommand: !add\nDescription: Will add your discord name and DiscorID to the dod database\nUsage: !add";
                     }
-                    if (preg_match('/!total/', $second) or preg_match('/!Total/', $second)) {
+                    if (preg_match('/!total/', $second) or preg_match('/!Total/', $second) or preg_match('/total/', $second) or preg_match('/Total/', $second)) {
                         $content3 = "\nCommand: !total\nDescription: Personal Totals in the bank\nUsage: !total or !total (@ of a player)";
                     }
-                    if (preg_match('/!WTA/', $second) or preg_match('/!wta/', $second)) {
+                    if (preg_match('/!WTA/', $second) or preg_match('/!wta/', $second) or preg_match('/WTA/', $second) or preg_match('/wta/', $second)) {
                         $content3 = "\nCommand: !wta\nDescription: Winner Take all Lottery\nUsage: !wta or !wta (Number of the week)";
                     }
-                    if (preg_match('-!50/50-', $second) or preg_match('-!wtf-', $second) or preg_match('-!WTF-', $second)) {
+                    if (preg_match('-!50/50-', $second) or preg_match('-!wtf-', $second) or preg_match('-!WTF-', $second) or preg_match('-50/50-', $second) or preg_match('-wtf-', $second) or preg_match('-WTF-', $second)) {
                         $content3 = "\nCommand: !50/50 or !wtf\nDescription: 50/50 raffle. Half to the winner half to the guild\nUsage: !50/50 / !wtf or !50/50 / !wtf (Number of the week)";
                     }
-                    if (preg_match('/!PB/', $second) or preg_match('/!Pb/', $second) or preg_match('/!pb/', $second)) {
+                    if (preg_match('/!PB/', $second) or preg_match('/!Pb/', $second) or preg_match('/!pb/', $second) or preg_match('/PB/', $second) or preg_match('/Pb/', $second) or preg_match('/pb/', $second)) {
                         $content3 = "\nCommand: !pb\nDescription: Power ball, played just like the power ball\nUsage: !pb or !pb (Number of the week)";
                     }
-                    if (preg_match('/!guild/', $second) or preg_match('/!Guild/', $second)) {
+                    if (preg_match('/!guild/', $second) or preg_match('/!Guild/', $second) or preg_match('/guild/', $second) or preg_match('/Guild/', $second)) {
                         $content3 = "\nCommand: !guild\nDescription: Displays our current guild funds\nUsage: !guild)";
                     }
-                    if (preg_match('/!tracker/', $second) or preg_match('/!Tracker/', $second) or preg_match('/!TRACKER/', $second)) {
+                    if (preg_match('/!tracker/', $second) or preg_match('/!Tracker/', $second) or preg_match('/!TRACKER/', $second) or preg_match('/tracker/', $second) or preg_match('/Tracker/', $second) or preg_match('/TRACKER/', $second)) {
                         $content3 = "\nCommand: !tracker\nDescription: What you have personally donated to the guild(this is also half of what you put into the 50/50 raffle)\nUsage: !tracker or !tracker (@ of a player)";
                     }
-                    if (preg_match('/!gear/', $second) or preg_match('/!Gear/', $second)) {
+                    if (preg_match('/!gear/', $second) or preg_match('/!Gear/', $second) or preg_match('/gear/', $second) or preg_match('/Gear/', $second)) {
                         $content3 = "\nCommand: !gear\nDescription: Will allow you to calculate basestat of gear and stats of gear when upgraded\nUsage: Basestatcalc: !gear (Stat number) (Gear level) or Upgradestatcalc:  !gear (Stat number) (Gear level) (Upgrade Gear Level)";
                     }
                 } else {
@@ -82,6 +82,7 @@ $discord->on('ready', function ($discord) {
                     $user = $message->author->username;
                     $query = "INSERT INTO person_info(id,name) values (?,?)";
                     addperson($query, $id, $user);
+                    $message->reply("Added as ".$user);
                 } else {
                     $message->reply("You already exist");
                 }
@@ -96,7 +97,7 @@ $discord->on('ready', function ($discord) {
                 total($update, $id);
                 $query = "SELECT name,Tfood,Tparts,Telectric,Tgas,Tcash,Tshadow FROM Total_bank WHERE id=?";
                 $data = person($query, $id);
-                $message->reply("Your personal totals are:" . "\n<@&790302677761392660>: " . round($data[0]['Tfood']) . "M" . "\n<@&790302779314143303>: " . round($data[0]['Tparts']) . "M" . "\n<@&790302852861919312>: " . round($data[0]['Telectric']) . "M" . "\n<@&790312643474358314>: " . round($data[0]['Tgas']) . "M" . "\n<@&790312798500028437>: " . round($data[0]['Tcash']) . "M" . "\n<@&790312854184001547>: " . round($data[0]['Tshadow']));
+                $message->reply("Banked personal totals are:" . "\n<@&790302677761392660>: " . round($data[0]['Tfood']) . "M" . "\n<@&790302779314143303>: " . round($data[0]['Tparts']) . "M" . "\n<@&790302852861919312>: " . round($data[0]['Telectric']) . "M" . "\n<@&790312643474358314>: " . round($data[0]['Tgas']) . "M" . "\n<@&790312798500028437>: " . round($data[0]['Tcash']) . "M" . "\n<@&790312854184001547>: " . round($data[0]['Tshadow']));
             }
             if (preg_match('/!WTA/', $first) or preg_match('/!wta/', $first)) {
                 echo 1;
@@ -435,7 +436,7 @@ $discord->on('ready', function ($discord) {
                     $diff = $later->diff($earlier)->format("%a");
                     echo $diff;
                 }
-                $content = "Your Guild totals are:" . "\n<@&790302677761392660>: " . round($food, 1) . "M" . "\n<@&790302779314143303>: " . round($parts, 1) . "M" . "\n<@&790302852861919312>: " . round($electric, 1) . "M" . "\n<@&790312643474358314>: " . round($gas, 1) . "M" . "\n<@&790312798500028437>: " . round($cash, 1) . "M"
+                $content = "Banked Guild totals are:" . "\n<@&790302677761392660>: " . round($food, 1) . "M" . "\n<@&790302779314143303>: " . round($parts, 1) . "M" . "\n<@&790302852861919312>: " . round($electric, 1) . "M" . "\n<@&790312643474358314>: " . round($gas, 1) . "M" . "\n<@&790312798500028437>: " . round($cash, 1) . "M"
                     . "\n";
                 if (isset($data)) {
                     $weeks = $diff / 7;
@@ -465,7 +466,7 @@ $discord->on('ready', function ($discord) {
                     if (isset($content2)) {
                         $content = $content . $content2 . $content3;
                     } else {
-                        $content = $content;
+                        $content = $content."----------------\nThank you, you have fullfilled the required amount :hugging:";
                     }
                 }
                 $message->reply($content);
