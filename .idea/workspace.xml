@@ -23,6 +23,21 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunManager">
+    <configuration name="test.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/test.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.test.php" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -31,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1625669609734</updated>
-      <workItem from="1625669610820" duration="1859000" />
+      <workItem from="1625669610820" duration="3821000" />
     </task>
     <servers />
   </component>
@@ -39,10 +54,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="516" y="623" key="NewPhpFileDialog" timestamp="1625670058252">
+    <state x="516" y="623" key="NewPhpFileDialog" timestamp="1625674174094">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="516" y="623" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1625670058252" />
+    <state x="516" y="623" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1625674174094" />
     <state x="234" y="118" width="925" height="1386" key="dock-window-1" timestamp="1625671114783">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -51,16 +66,5 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1576" y="334" key="run.anything.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1625670260892" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/bot.php</url>
-          <line>11</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
