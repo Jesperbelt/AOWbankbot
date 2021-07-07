@@ -10,7 +10,6 @@ use Discord\DiscordCommandClient;
 
 
 include 'token.php';
-
 $discord = new DiscordCommandClient([
     'token' => $token,
 ]);
