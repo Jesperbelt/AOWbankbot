@@ -83,7 +83,7 @@ function totals($totalsquery, $week, $name)
 use Discord\DiscordCommandClient;
 
 $discord = new DiscordCommandClient([
-    'token' => 'Nzg5MjUxMDU3NDQzNjY4MDQ5.X9vVUw.Y_-s_-Q8qya-Lf6X_Bq-fnRuwCw',
+    'token' => 'hidden',
 ]);
 
 $discord->on('ready', function ($discord) {
